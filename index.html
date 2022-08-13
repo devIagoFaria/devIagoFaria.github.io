@@ -493,37 +493,7 @@
 	<script src="js/aos.js"></script>
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
-	<script>
-
-		var submit = document.getElementById('submit')
-		submit.addEventListener("click", (event) => {
-			event.preventDefault()
-
-			let reqBody = {
-				nome: document.getElementsByName('nome')[0].value,
-				email: document.getElementsByName('email')[0].value,
-				assunto: document.getElementsByName('assunto')[0].value,
-				mensage: document.getElementById('mensagem').value
-				}
-
-			console.log(reqBody)	
-
-			var myInit = { 
-				method: 'POST',
-				body: reqBody,
-				headers: {"Content-type": "application/json; charset=UTF-8"}
-			};
-
-
-			fetch('http://localhost:21234/email', myInit)
-			.then(res => {
-				console.log(res)
-			})
-
-
-		})
-
-	</script>
+	<script src="./js/sendEmail.js" ></script>
 
 	<script src="js/main.js"></script>
 
