@@ -376,22 +376,22 @@
 
 			<div class="row no-gutters block-9">
 				<div class="col-md-6 order-md-last d-flex">
-					<form action="/" class="bg-light p-4 p-md-5 contact-form">
+					<form action="" method="post" class="bg-light p-4 p-md-5 contact-form">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Digite seu nome">
+							<input type="text" class="form-control" name="nome" placeholder="Digite seu nome">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Digite seu email">
+							<input type="text" class="form-control" name="email" placeholder="Digite seu email">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Assunto">
+							<input type="text" class="form-control" name="assunto" placeholder="Assunto">
 						</div>
 						<div class="form-group">
-							<textarea name="" id="" cols="30" rows="7" class="form-control"
+							<textarea name="" id="mensagem" cols="30" rows="7" name="mensagem" class="form-control"
 								placeholder="Digite sua mensagem..."></textarea>
 						</div>
 						<div class="form-group">
-							<input type="submit" value="Envia mensagem" class="btn btn-primary py-3 px-5">
+							<input type="submit" id="submit" value="Envia mensagem" class="btn btn-primary py-3 px-5">
 						</div>
 					</form>
 
@@ -493,6 +493,37 @@
 	<script src="js/aos.js"></script>
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
+	<script>
+
+		var submit = document.getElementById('submit')
+		submit.addEventListener("click", (event) => {
+			event.preventDefault()
+
+			let reqBody = {
+				nome: document.getElementsByName('nome')[0].value,
+				email: document.getElementsByName('email')[0].value,
+				assunto: document.getElementsByName('assunto')[0].value,
+				mensage: document.getElementById('mensagem').value
+				}
+
+			console.log(reqBody)	
+
+			var myInit = { 
+				method: 'POST',
+				body: reqBody,
+				headers: {"Content-type": "application/json; charset=UTF-8"}
+			};
+
+
+			fetch('http://localhost:21234/email', myInit)
+			.then(res => {
+				console.log(res)
+			})
+
+
+		})
+
+	</script>
 
 	<script src="js/main.js"></script>
 
