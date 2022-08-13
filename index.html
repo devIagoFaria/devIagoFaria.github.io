@@ -22,9 +22,15 @@
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/icomoon.css">
 	<link rel="stylesheet" href="css/style.css">
+
+	<link rel="stylesheet" href="css/mycss.css">
+
+
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+	
 
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
@@ -378,20 +384,23 @@
 				<div class="col-md-6 order-md-last d-flex">
 					<form action="" method="post" class="bg-light p-4 p-md-5 contact-form">
 						<div class="form-group">
-							<input type="text" class="form-control" name="nome" placeholder="Digite seu nome">
+							<input type="text" class="form-control" name="nome" placeholder="Digite seu nome" required>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" name="email" placeholder="Digite seu email">
+							<input type="text" class="form-control" name="email" placeholder="Digite seu email" required>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" name="assunto" placeholder="Assunto">
+							<input type="text" class="form-control" name="assunto" placeholder="Assunto" required>
 						</div>
 						<div class="form-group">
-							<textarea name="" id="mensagem" cols="30" rows="7" name="mensagem" class="form-control"
+							<textarea name="" id="mensagem" cols="30" rows="7" name="mensagem" class="form-control" required
 								placeholder="Digite sua mensagem..."></textarea>
 						</div>
 						<div class="form-group">
-							<input type="submit" id="submit" value="Envia mensagem" class="btn btn-primary py-3 px-5">
+							<div id="submitDiv" class="btn btn-primary  py-3 px-5 w-100" style="display:flex; justify-content: space-around;" >
+								<div id='loading' class="loader"  style="display: none ;"></div>
+								<input type="submit" id="submit" value="Envia mensagem" class="btn btn-primary" >
+								</div>
 						</div>
 					</form>
 
@@ -479,7 +488,6 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
 				stroke="#F96D00" />
 		</svg></div>
-
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-migrate-3.0.1.min.js"></script>

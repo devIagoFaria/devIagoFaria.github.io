@@ -1,5 +1,14 @@
-var submit = document.getElementById('submit')
+var submit = document.getElementById('submitDiv')
+
 submit.addEventListener("click", (event) => {
+    
+    sendEmail(event)
+
+
+})
+
+
+function sendEmail(event){
 
     event.preventDefault()
 
@@ -8,7 +17,7 @@ submit.addEventListener("click", (event) => {
         email: document.getElementsByName('email')[0].value,
         assunto: document.getElementsByName('assunto')[0].value,
         mensage: document.getElementById('mensagem').value
-        }
+    }
 
     var myInit = { 
         method: 'POST',
@@ -16,6 +25,11 @@ submit.addEventListener("click", (event) => {
         headers: {"Content-type": "application/json; charset=UTF-8"}
     };
 
+    if(reqBody.nome == '' || reqBody.email == '' || reqBody.assunto == '' || reqBody.mensage == '' ){
+        alert('Todos os campos são obrigatórios')
+        return false
+    }
+   
 
     fetch('https://empreendimentosrj.com.br/emailDev', myInit)
     .then(res => {
@@ -24,4 +38,14 @@ submit.addEventListener("click", (event) => {
     })
 
 
-})
+}
+
+
+function HTMLModification(){
+
+    let loading = document.getElementById('loading')
+    let submitText = document.getElementById('submit')
+    submitText.style.display = 'none'
+    loading.style.display = 'flex'
+
+}
