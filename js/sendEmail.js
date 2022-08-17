@@ -1,7 +1,6 @@
 var submit = document.getElementById('submitDiv')
 
 submit.addEventListener("click", (event) => {
-    
     sendEmail(event)
 
 
