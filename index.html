@@ -28,9 +28,30 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<style>
+
+	.scroll-helper {
+		display: none;
+	}
+
+@media screen and (max-width: 700px) {
+	.scroll-helper {
+		display: block;
+		height: 100%; /* Altura mínima suficiente para iniciar a rolagem */
+		width: 100%;
+		position: absolute;
+		z-index: 1111111;
+	}
+
+}
+
+</style>	
+
 
 	
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+	<section id="home-section" class="hero">
 
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
